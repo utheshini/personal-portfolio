@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/* Enable dark mode variant */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    /* Smooth transition when switching themes */
+    transition: background-color 0.3s, color 0.3s;
+    scroll-behavior: smooth;
+  }
+}
