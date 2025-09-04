@@ -3,9 +3,10 @@
 This is my personal portfolio website built with React.js and Tailwind CSS. It showcases my skills, projects, and experience as a Frontend Developer.
 
 ---
+
 ## 🔗 Live Demo
 
-👉 [Visit my Portfolio](https://utheshini.vercel.app/)
+👉 [Visit my Portfolio](https://utheshini-uthayananth.vercel.app/)
 
 ---
 
@@ -41,9 +42,11 @@ This is my personal portfolio website built with React.js and Tailwind CSS. It s
 ## 📸 Screenshots
 
 ### Desktop View
+
 ![Desktop Screenshot](public/screenshots/desktop.png)
 
 ### Mobile View
+
 ![Mobile Screenshot](public/screenshots/mobile.png)
 
 ---
@@ -56,18 +59,17 @@ This project is licensed under the MIT License..
 
 ## 🙋‍♀️ About Me
 
-I’m a recent graduate and aspiring Frontend Developer passionate about building real-world projects. This portfolio showcases my skills in 
-**React.js**, **Tailwind CSS**, and modern web development as I continue improving my UI and React expertise.  
+I’m a recent graduate and aspiring Frontend Developer passionate about building real-world projects. This portfolio showcases my skills in
+**React.js**, **Tailwind CSS**, and modern web development as I continue improving my UI and React expertise.
 
 ---
 
-## 📬 Contact 
+## 📬 Contact
 
-- **Email:** utheshini10@gmail.com  
-- **LinkedIn:** [LinkedIn](https://linkedin.com/in/utheshini-uthayananth)  
-- **GitHub:**  [GitHub](https://github.com/utheshini)  
+- **Email:** utheshini10@gmail.com
+- **LinkedIn:** [LinkedIn](https://linkedin.com/in/utheshini-uthayananth)
+- **GitHub:** [GitHub](https://github.com/utheshini)
 
 ---
 
 ✨ Thanks for checking out my portfolio! Feel free to connect with me on LinkedIn
- 

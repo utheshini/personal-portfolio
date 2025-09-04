@@ -20,7 +20,7 @@ const projects = [
       "Personal portfolio built with React and Tailwind CSS showcasing projects and skills.",
     image: portfolioMockup,
     tech: ["React", "Tailwind"],
-    demo: "https://utheshini.vercel.app",
+    demo: "https://utheshini-uthayananth.vercel.app",
     github: "https://github.com/utheshini/personal-portfolio",
   },
   {

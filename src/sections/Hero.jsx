@@ -40,7 +40,7 @@ function Hero() {
 
             {/* CTA button to open resume in new tab */}
             <a
-              href="/resume.pdf"
+              href="/Utheshini_Uthayananth_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="View my resume"
@@ -58,6 +58,8 @@ function Hero() {
             <img
               src={illustration}
               alt="Profile Illustration"
+              width={256}
+              height={256}
               className="w-64 h-64 border-4 border-indigo-600 dark:border-indigo-400 rounded-full shadow-2xl object-cover"
             />
             {/* Glow Effect around the illustration */}
