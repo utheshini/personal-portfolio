@@ -3,9 +3,9 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 // Reusable project card component
 function ProjectCard({ title, description, image, tech, demo, github }) {
   return (
-    <div
-      className="flex flex-col bg-gray-50 dark:bg-gray-800 rounded-2xl shadow transition duration-300 ease-in-out 
-    hover:shadow-lg dark:hover:border dark:hover:border-indigo-500/40"
+    <article
+      className="flex flex-col h-full bg-gray-50 dark:bg-gray-800 rounded-2xl border border-transparent 
+      shadow-sm transition duration-300 ease-in-out over:shadow-md hover:border-indigo-500/70"
     >
       <img
         src={image}
@@ -22,16 +22,17 @@ function ProjectCard({ title, description, image, tech, demo, github }) {
         </p>
 
         {/* Tech stack tags */}
-        <div className="flex flex-wrap gap-2 mt-4">
-          {tech.map((t, i) => (
-            <span
-              key={i}
-              className="px-3 py-1 text-xs font-medium text-indigo-700 dark:text-indigo-100 bg-indigo-100 dark:bg-indigo-700 rounded-full"
+        <ul className="flex flex-wrap gap-2 mt-4">
+          {tech.map((t) => (
+            <li
+              key={t}
+              className="px-3 py-1 text-xs font-medium text-indigo-700 
+              dark:text-indigo-100 bg-indigo-100 dark:bg-indigo-700 rounded-full"
             >
               {t}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
 
         {/* Live Demo + GitHub links*/}
         <div className="flex gap-4 mt-6">
@@ -59,7 +60,7 @@ function ProjectCard({ title, description, image, tech, demo, github }) {
           </a>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

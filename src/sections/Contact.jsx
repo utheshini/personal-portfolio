@@ -4,14 +4,14 @@ import { FaGithub } from "react-icons/fa";
 function Contact() {
   return (
     <section id="contact" className="px-6 py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-5xl mx-auto text-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 text-center">
         <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white">
           Let’s Connect
         </h2>
         <p className="max-w-2xl mx-auto mb-12 text-gray-600 dark:text-gray-300">
-          I’m open to internship and entry-level job opportunities. Whether you have a
-          question, want to collaborate, or just say hi, I’d love to hear from
-          you!
+          I’m open to internship and entry-level job opportunities. Whether you
+          have a question, want to collaborate, or just say hi, I’d love to hear
+          from you!
         </p>
 
         {/* Social Links */}

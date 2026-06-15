@@ -5,9 +5,9 @@ function Hero() {
   return (
     <section
       id="hero"
-      className="flex items-center justify-center min-h-screen px-6 bg-white dark:bg-gray-900"
+      className="flex items-center min-h-screen px-6 bg-white dark:bg-gray-900"
     >
-      <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto px-6 md:px-8">
         <div className="space-y-6 text-center md:text-left">
           {/* Intro text */}
           <p className="text-lg font-medium text-indigo-600 dark:text-indigo-400">

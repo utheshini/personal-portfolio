@@ -3,7 +3,7 @@ import illustration from "../assets/illustration.png";
 function About() {
   return (
     <section id="about" className="px-6 py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="grid md:grid-cols-2 items-center gap-12 max-w-6xl mx-auto ">
+      <div className="grid md:grid-cols-2 items-center gap-12 max-w-7xl mx-auto px-6 md:px-8">
         {/* Illustration */}
         <div className="hidden md:flex md:justify-start">
           <div className="relative">

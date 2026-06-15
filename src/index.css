@@ -3,6 +3,11 @@
 /* Enable dark mode variant */
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --color-primary-light: #4f46e5; 
+  --color-primary-dark: #818cf8;
+}
+
 @layer base {
   html {
     /* Smooth transition when switching themes */

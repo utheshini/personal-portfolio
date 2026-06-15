@@ -37,16 +37,18 @@ const projects = [
 function Projects() {
   return (
     <section id="projects" className="px-6 py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 text-center">
         <h2 className="mb-12 text-3xl font-bold text-gray-900 dark:text-white">
           Featured Projects
         </h2>
         {/* Grid of project cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
+            <li key={project.title} className="h-full">
+              <ProjectCard {...project} />
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

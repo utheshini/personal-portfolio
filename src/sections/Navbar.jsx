@@ -8,38 +8,52 @@ import {
 
 // Links for navbar section
 const navLinks = [
-  { name: "Skills", to: "#skills" },
-  { name: "Projects", to: "#projects" },
-  { name: "About", to: "#about" },
-  { name: "Contact", to: "#contact" },
+  { name: "Skills", id: "skills" },
+  { name: "Projects", id: "projects" },
+  { name: "About", id: "about" },
+  { name: "Contact", id: "contact" },
 ];
 
-function Navbar() {
+function Navbar({ theme, toggleTheme }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
-  // Theme persisted in localStorage or system preference
-  const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) return savedTheme;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  });
-
-  // Persist theme in localStorage and update document class
+  // Implement scroll spy to highlight active section in navbar using viewport center detection
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else if (theme === "light") {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [theme]);
+    const sections = document.querySelectorAll("section[id]");
+
+    const handleScroll = () => {
+      let currentSection = "";
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const sectionTop = rect.top;
+        const sectionHeight = rect.height;
+
+        // Check if section is near center of viewport
+        if (
+          sectionTop <= window.innerHeight / 2 &&
+          sectionTop + sectionHeight >= window.innerHeight / 2
+        ) {
+          currentSection = section.id;
+        }
+      });
+
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-white dark:bg-gray-900 shadow-md">
-      <div className="flex items-center justify-between max-w-6xl h-16 mx-auto px-4">
+      <div className="flex items-center justify-between max-w-7xl mx-auto px-6 md:px-8 h-14 md:h-16">
         {/* Portfolio logo name */}
         <h1 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 transition-colors duration-300 ease-in-out cursor-pointer hover:opacity-80">
           <a href="#hero">Utheshini Uthayananth</a>
@@ -48,12 +62,18 @@ function Navbar() {
         {/* Desktop nav links */}
         <ul className="hidden md:flex items-center gap-x-4">
           {navLinks.map((link) => (
-            <li
-              key={link.name}
-              className="text-gray-700 dark:text-gray-200 transition-colors duration-300 ease-in-out cursor-pointer 
-              hover:text-indigo-600 dark:hover:text-indigo-400"
-            >
-              <a href={link.to}>{link.name}</a>
+            <li key={link.name}>
+              <a
+                href={`#${link.id}`}
+                className={`relative transition-colors duration-300
+                  ${
+                    activeSection === link.id
+                      ? "text-color-primary dark:text-indigo-400 font-semibold after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-indigo-600 dark:after:bg-indigo-400 after:transition-all after:duration-300"
+                      : "text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-indigo-600 dark:after:bg-indigo-400 after:transition-all after:duration-300"
+                  }`}
+              >
+                {link.name}
+              </a>
             </li>
           ))}
         </ul>
@@ -62,29 +82,29 @@ function Navbar() {
           {/* Theme toggle button */}
           <button
             type="button"
-            aria-label="Toggle Dark Mode"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            className="p-2 text-gray-700 dark:text-gray-200 bg-gray-200 dark:bg-gray-700 rounded-full transition-colors duration-300 ease-in-out 
+            onClick={toggleTheme}
+            aria-label="Toggle dark mode"
+            className="p-1 md:p-2 text-gray-700 dark:text-gray-200 bg-gray-200 dark:bg-gray-700 rounded-full transition-colors duration-300 ease-in-out 
             cursor-pointer hover:opacity-80"
           >
             {theme === "light" ? (
-              <IoMoonOutline className="w-6 h-6" />
+              <IoMoonOutline className="w-4 h-4" />
             ) : (
-              <IoSunnyOutline className="w-6 h-6" />
+              <IoSunnyOutline className="w-4 h-4" />
             )}
           </button>
 
           {/* Mobile menu toggle button */}
           <button
             type="button"
-            aria-label="Toggle menu"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
             className="md:hidden"
           >
             {isMenuOpen ? (
-              <IoCloseOutline className="w-6 h-6 text-gray-700 dark:text-gray-200" />
+              <IoCloseOutline className="w-4 h-4 text-gray-700 dark:text-gray-200" />
             ) : (
-              <IoMenuOutline className="w-6 h-6 text-gray-700 dark:text-gray-200" />
+              <IoMenuOutline className="w-4 h-4 text-gray-700 dark:text-gray-200" />
             )}
           </button>
         </div>
@@ -96,10 +116,14 @@ function Navbar() {
           {navLinks.map((link) => (
             <li key={link.name}>
               <a
-                href={link.to}
+                href={`#${link.id}`}
                 onClick={() => setIsMenuOpen(false)}
-                className="block text-gray-700 dark:text-gray-200 transition-colors duration-300 ease-in-out cursor-pointer 
-                hover:text-indigo-600 dark:hover:text-indigo-400"
+                className={`relative transition-colors duration-300
+                  ${
+                    activeSection === link.id
+                      ? "text-indigo-600 dark:text-indigo-400 font-semibold after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-indigo-600 dark:after:bg-indigo-400 after:transition-all after:duration-300"
+                      : "text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-indigo-600 dark:after:bg-indigo-400 after:transition-all after:duration-300"
+                  }`}
               >
                 {link.name}
               </a>

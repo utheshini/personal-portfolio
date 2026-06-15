@@ -24,17 +24,19 @@ const skills = [
 function Skills() {
   return (
     <section id="skills" className="px-6 py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="max-w-5xl mx-auto text-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 text-center">
         <h2 className="mb-12 text-3xl font-bold text-gray-900 dark:text-white">
           Skills
         </h2>
 
         {/* Grid of skill tags */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+        <ul className="grid grid-cols-2 md:grid-cols-3 gap-8">
           {skills.map((skill) => (
-            <SkillTag key={skill.name} {...skill} />
+            <li key={skill.name}>
+              <SkillTag {...skill} />
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
